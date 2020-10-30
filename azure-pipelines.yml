@@ -1,8 +1,12 @@
 stages:
-  - stage: firststage
+  - stage: firststg
     jobs:
-      - job: firstjob
+      - job: firststg-firstjob
         steps:
-          - bash: echo "Hello work"
-
-
+          - script: echo Hello!
+            condition: always()
+      - job: firststg-secondjob
+        dependsOn: firststg-firstjob
+        condition: failed()
+        steps:
+          - bash: echo "sxxx"
