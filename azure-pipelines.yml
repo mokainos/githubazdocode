@@ -3,6 +3,6 @@ stages:
     jobs:
       - job: firstjob
         steps:
-          - bash: echo "Hello"
+          - bash: echo "Hello work"
 
 
