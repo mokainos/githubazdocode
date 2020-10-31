@@ -19,6 +19,6 @@ parameters:
     type: boolean
     default: true
 steps:
-  - ${{ each paramter in parameters }}:
-    - script: echo ${{ paramter.Key}}
+  - ${{ each parameter in parameters }}:
+    - script: echo ${{ parameter.Key}}
     - script: echo ${{ parameter.Value}}
