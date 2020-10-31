@@ -20,5 +20,4 @@ parameters:
     default: true
 steps:
   - ${{ each parameter in parameters }}:
-    - script: echo ${{ parameter.Key}}
-    - script: echo ${{ parameter.Value}}
+    - script: echo ${{ parameter.Key}} --  ${{ parameter.Value}}
