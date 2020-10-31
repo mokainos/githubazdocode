@@ -1,12 +1,15 @@
+parameters:
+  - name: image
+    displayName: param
+    type: string
+    default: ubuntu-latest
+    values:
+      - ubuntu-latest
+      - macOs-10.14
 jobs:
-  - job: A
+  - job: first
+    displayName: first
+    pool:
+      vmImage: ${{parameters.image}}
     steps:
-    - task: MyTask@1  # this step generates the output variable
-      name: ProduceVar  # because we're going to depend on it, we need to name the step
-  - job: B
-    dependsOn: A
-    variables:
-      # map the output variable from A into this job
-      varFromA: $[ dependencies.A.outputs['ProduceVar.MyVar'] ]
-    steps:
-    - script: echo $(varFromA) # this step uses the mapped-in variable
+    - script: echo $(Build.BuildNumber) with ${{paramters.image}}
