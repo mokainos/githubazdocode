@@ -1,17 +1,12 @@
-variables:
-  global_variable: global
 jobs:
-  - job: job1
-    pool:
-      vmImage: 'ubuntu-16.04'
-    variables:
-      job_variable1: job_var1 
+  - job: A
     steps:
-      - bash: echo $(global_variable)
-      - bash: echo $(job_variable1)
-      - bash: echo $JOB_VARIABLE1
-      - bash: echo $GLOBAL_VARIABLE
-      - bash: echo $(mySecret)
-      - bash: echo $EG
-        env:
-          EG: $(mySecret)
+    - task: MyTask@1  # this step generates the output variable
+      name: ProduceVar  # because we're going to depend on it, we need to name the step
+  - job: B
+    dependsOn: A
+    variables:
+      # map the output variable from A into this job
+      varFromA: $[ dependencies.A.outputs['ProduceVar.MyVar'] ]
+    steps:
+    - script: echo $(varFromA) # this step uses the mapped-in variable
