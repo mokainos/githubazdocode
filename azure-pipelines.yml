@@ -12,6 +12,6 @@ jobs:
       - bash: echo $JOB_VARIABLE1
       - bash: echo $GLOBAL_VARIABLE
       - bash: echo $(mySecret)
-      - bash: echo $(EG)
+      - bash: echo $EG
     env:
       EG: $(mySecret)
