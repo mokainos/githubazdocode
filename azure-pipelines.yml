@@ -11,4 +11,4 @@ steps:
   - script: |
       echo ${{variables.one}}
       echo $(one)
-    displayName: $(one)      
+    displayName: $(two)      
