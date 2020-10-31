@@ -1,14 +1,13 @@
 variables:
-- name: one
-  value: initialvalue
-steps:
-  - script: |
-      echo ${{variables.one}}
-      echo $(one)
-    displayName: First variables pass
-  - bash: echo '##vso[task.setvariable variable=one]secondvalume'
-    displayName: set new value
-  - script: |
-      echo ${{variables.one}}
-      echo $(one)
-    displayName: $(two)      
+  global_variable: global
+jobs:
+  - job: job1
+    pool:
+      vmImage: 'ubuntu-16.04'
+    variables:
+      job_variable1: job_var1 
+    steps:
+      - bash: echo $(global_variable)
+      - bash: echo $(job_variable1)
+      - bash: echo $JOB_VARIABLE1
+      - bash: echo $GLOBAL_VARIABLE
