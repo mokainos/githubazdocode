@@ -1,12 +1,14 @@
-stages:
-  - stage: firststg
-    jobs:
-      - job: firststg_firstjob
-        steps:
-          - script: echo Hello!
-            condition: always()
-      - job: firststg_secondjob
-        dependsOn: firststg_firstjob
-        condition: failed()
-        steps:
-          - bash: echo "sxxx"
+variables:
+- name: one
+  value: initialvalue
+steps:
+  - script: |
+      echo ${{variables.one}}
+      echo $(one)
+    displayName: First variables pass
+  - bash: echo '##vso[task.setvariable variable=one]secondvalume'
+    displayName: set new value
+  - script: |
+      echo ${{variables.one}}
+      echo $(one)
+    displayName: First variables pass      
