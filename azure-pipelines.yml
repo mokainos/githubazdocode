@@ -10,5 +10,5 @@ steps:
     displayName: set new value
   - script: |
       echo ${{variables.one}}
-      echo $(one)
+      echo $(two)
     displayName: First variables pass      
