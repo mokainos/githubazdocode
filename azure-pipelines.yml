@@ -1,24 +1,10 @@
-parameters:
-  - name: myStringName
-    type: string
-    default: a string vale
-  - name: myMultiString
-    type: string
-    default: default
-    values:
-      - default
-      - ubuntu
-  - name: myNumber
-    type: number
-    default: 2
-    values:
-      - 1
-      - 2
-      - 4
-  - name: myBoolean
-    type: boolean
-    default: true
+variables:
+  staticVar: 'dsa'
+  compileVar: ${{variables.staticVar}}
+  isMain: $[eq(variables['Build.SourceBranch'], 'refs/heads/master')]
+
 steps:
-  - ${{ each parameter in parameters }}:
-    - script: echo ${{ parameter.Key}}
-    - script: echo ${{ parameter.Value}}
+  - script: |
+      echo ${{ variables.staticVar}}
+      echo $(complieVar)
+      echo $(isMain)
