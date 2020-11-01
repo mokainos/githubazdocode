@@ -7,3 +7,5 @@ parameters:
 steps:
   - ${{ if eq(parameters.exptemp, true) }}:
     - template: simple-param.yml
+      parameters:
+        YesNo: true
