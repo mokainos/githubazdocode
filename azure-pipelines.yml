@@ -1,5 +1,9 @@
-extends:
-  template: simple-param.yml
-  parameters:
-    yesNo: false
-    
+parameters:
+  - name: exptemp
+    type: boolean
+    default: false
+    displayName: 'use exp'
+
+steps:
+  - ${{ if eq(parameters.exptemp. true) }}:
+    - template: simple-param.yml
