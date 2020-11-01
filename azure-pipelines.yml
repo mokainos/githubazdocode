@@ -1,10 +1,6 @@
 variables:
-  staticVar: 'my value' # static variable
-  compileVar: ${{ variables.staticVar }} # compile time expression
-  isMain: $[eq(variables['Build.SourceBranch'], 'refs/heads/master')] # runtime expression
-
+  ${{ if eq(variable['BuildBranchName'], 'master')}}:
+    stagname: prod
 steps:
-  - script: |
-      echo ${{variables.staticVar}} # outputs my value
-      echo $(compileVar) # outputs my value
-      echo $(isMain) # outputs True
+  - bash: echo ${{variable.stagname}}
+  - bash: echo $(sragname)
