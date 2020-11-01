@@ -1,6 +1,9 @@
 variables:
-  ${{ if eq(variable['BuildBranchName'], 'master')}}:
-    stagname: prod
+  ${{ if eq(variables['Build.SourceBranchName'], 'master') }}: # only works if you have a master branch
+    stageName: prod
+
+pool:
+  vmImage: 'ubuntu-latest'
+
 steps:
-  - bash: echo ${{variable.stagname}}
-  - bash: echo $(stagname)
+- script: echo ${{variables.stageName}}
