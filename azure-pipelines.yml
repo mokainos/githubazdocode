@@ -1,17 +1,9 @@
 parameters:
-- name: myStep
-  type: step
-  default:
-    script: echo my step
-- name: mySteplist
-  type: stepList
-  default:
-    - script: echo step one
-    - script: echo step two
-
-jobs:
-  - job: stepList
-    steps: ${{ parameters.mySteplist }}
-  - job: myStep
-    steps:
-      - ${{ parameters.myStep }}
+  - name: listOfStrings
+    type: object
+    default:
+    - one
+    - two
+steps:
+  - ${{ each value in parameters.listOfStrings }}:
+    - script: echo ${{ value }}
