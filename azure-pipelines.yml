@@ -8,4 +8,4 @@ pool:
 steps:
 - script: echo ${{variables.stageName}}
 - bash: echo $(stageName)
-- bash: echo $[variables.stageName]
+- script: echo $[variables.stageName]
