@@ -3,4 +3,4 @@ variables:
     stagname: prod
 steps:
   - bash: echo ${{variable.stagname}}
-  - bash: echo $(sragname)
+  - bash: echo $(stagname)
