@@ -5,5 +5,5 @@ parameters:
     displayName: 'use exp'
 
 steps:
-  - ${{ if eq(parameters.exptemp. true) }}:
+  - ${{ if eq(parameters.exptemp, true) }}:
     - template: simple-param.yml
