@@ -1,11 +1,17 @@
 parameters:
-  - name: exptemp
-    type: boolean
-    default: false
-    displayName: 'use exp'
+- name: myStep
+  type: step
+  default:
+    script: echo my step
+- name: mySteplist
+  type: mySteplist
+  default:
+    - script: echo step one
+    - script: echo step two
 
-steps:
-  - ${{ if eq(parameters.exptemp, true) }}:
-    - template: simple-param.yml
-      parameters:
-        YesNo: true
+jobs:
+  - job: stepList
+    steps: ${{ parameters.mySteplist }}
+  - job: myStep
+    steps:
+      - ${{ parameters.myStep }}
