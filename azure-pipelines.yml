@@ -8,7 +8,7 @@ stages:
           - bash: echo "ok"
   - stage: "testq"
     displayName: "testdisplayq"
-    dependsOn: 
+    dependsOn: []
     jobs:
       - job: "testjoba"
         steps:
