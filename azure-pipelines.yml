@@ -3,7 +3,7 @@ parameters:
     type: object
     default:
     - one
-    - two
+    - tw
 steps:
   - ${{ each value in parameters.listOfStrings }}:
     - script: echo ${{ value }}
