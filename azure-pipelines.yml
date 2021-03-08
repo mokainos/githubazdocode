@@ -1,8 +1,16 @@
 stages:
   - stage: "test"
+    displayName: "testdisplay"
+    dependsOn: 
     jobs:
       - job: "testjob"
         steps:
           - bash: echo "ok"
-           
+  - stage: "testq"
+    displayName: "testdisplayq"
+    dependsOn: 
+    jobs:
+      - job: "testjoba"
+        steps:
+          - bash: echo "oka"
     
