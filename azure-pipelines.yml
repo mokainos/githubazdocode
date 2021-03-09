@@ -1,6 +1,6 @@
 stages:
   - stage: "test"
-    displayName: "testdisplay"
+    displayName: "testdispxlay"
     dependsOn: 
     jobs:
       - job: "testjob"
