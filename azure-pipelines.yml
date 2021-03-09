@@ -12,5 +12,5 @@ stages:
     jobs:
       - job: "testjoba"
         steps:
-          - bash: echo "odka"
+          - bash: echo "odkadsaf"
     
