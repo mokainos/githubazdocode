@@ -8,8 +8,9 @@ stages:
           - bash: echo "ok"
   - stage: "testq"
     displayName: "testdisplayq"
-    dependsOn: []
-    jobs:
+    dependsOn:
+      - test
+    condition: failed()
       - job: "testjoba"
         steps:
           - bash: echo "odkadsaf"
