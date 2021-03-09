@@ -1,3 +1,6 @@
+trigger:
+  branches:
+    - master
 stages:
   - stage: "test"
     displayName: "testdisplay"
