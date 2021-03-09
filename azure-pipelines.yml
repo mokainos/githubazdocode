@@ -10,7 +10,7 @@ stages:
     displayName: "testdisplayq"
     dependsOn:
       - test
-    condition: and(succeeded(), eq(variable['build.sourceBranch'], 'refs/heads/test'))
+    condition: and(succeeded(), eq(variables['build.sourceBranch'], 'refs/heads/test'))
     jobs:
       - job: "testjoba"
         steps:
