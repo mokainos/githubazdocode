@@ -1,7 +1,4 @@
-trigger:
-  branches:
-    include:
-    - master
+
 stages:
   - stage: "test"
     displayName: "testdisplay"
