@@ -10,7 +10,7 @@ parameters:
 trigger: none
 jobs:
   - job: build
-    displayName: build
+    displayName: builds
     pool:
       vmImage: ${{ parameters.image }}
     steps:
