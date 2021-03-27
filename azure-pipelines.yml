@@ -9,7 +9,7 @@ parameters:
       - ububtu-latest
 trigger: none
 jobs:
-  - jobs: build
+  - job: build
     displayName: build
     pool:
       vmImage: ${{ parameters.image }}
