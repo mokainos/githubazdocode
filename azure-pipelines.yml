@@ -6,6 +6,10 @@ parameters:
     values:
       - windows-latest
       - ubuntu-latest
+  - name: test
+    displayName: Build and Test
+    default: false
+    type: boolean
 trigger: none
 jobs:
   - job: build
@@ -14,3 +18,5 @@ jobs:
       vmImage: ${{ parameters.image }}
     steps:
       - script: echo building $(build.BuildNumber) with ${{ parameters.image }}
+      - ${{ if eq(parameters.test, true) }}:
+        - script: echo "Running all the tests"
