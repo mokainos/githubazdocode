@@ -15,3 +15,13 @@ stages:
           steps:
             - script: echo building x64
 
+  - stage: stg2
+    jobs: 
+      - ${{ if contains(parameters.configs, 'x86') }}:
+        - job: x862
+          steps:
+            - script: echo building x862 ...
+      - ${{ if contains(parameters.configs, 'x64') }}:
+        - job: x642
+          steps:
+            - script: echo building x642
