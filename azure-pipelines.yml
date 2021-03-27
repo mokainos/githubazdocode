@@ -4,8 +4,8 @@ parameters:
     default: 'x86,x64'
 trigger: none
 stages:
-  - stage:
-    jobs:
+  - stage: parameter
+    jobs: jobs1
       - ${{ if contains(parameters.configs, 'x86') }}:
         - job: x86
           steps:
@@ -14,3 +14,8 @@ stages:
         - job: x64
           steps:
             - script: echo building x64
+  - stage: stg2
+    jobs: jobs2
+    - job: st2j1
+      steps:
+      - script: echo "stgasadf"
