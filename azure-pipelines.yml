@@ -1,22 +1,16 @@
 parameters:
-  - name: image
-    displayName: Pool image
+  - name: configs
     type: string
-    default: ubuntu-latest
-    values:
-      - windows-latest
-      - ubuntu-latest
-  - name: test
-    displayName: Build and Test
-    default: false
-    type: boolean
+    default: 'x86,x64'
 trigger: none
-jobs:
-  - job: build
-    displayName: builds
-    pool:
-      vmImage: ${{ parameters.image }}
-    steps:
-      - script: echo building $(build.BuildNumber) with ${{ parameters.image }}
-      - ${{ if eq(parameters.test, true) }}:
-        - script: echo "Running all the tests"
+stages:
+  - stage:
+    jobs:
+      - ${{ if contains(parameters.configs, 'x86') }}:
+        - job: x86
+          steps:
+            - script: echo building x86 ...
+      - ${{ if contains(parameters.configs, 'x64') }}:
+        - job: x64
+          steps:
+            - script: echo building x64
