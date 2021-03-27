@@ -14,8 +14,3 @@ stages:
         - job: x64
           steps:
             - script: echo building x64
-  - stage: stg2
-    jobs: jobs2
-      - job: st2j1
-        steps:
-          - script: echo "stgasadf"
