@@ -2,8 +2,8 @@ stages:
   - stage: 
     jobs:
       - job: 
-          steps:
-            - bash: |
-                echo "##vso[task.setvariable variable=sauce]crushed tomatoes"
-            - bash: |
-                echo $(sauce)
+        steps:
+          - bash: |
+              echo "##vso[task.setvariable variable=sauce]crushed tomatoes"
+          - bash: |
+              echo $(sauce)
