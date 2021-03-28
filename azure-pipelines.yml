@@ -1,15 +1,12 @@
 variables:
   configuration: debug
   platform: x64
-steps:
-  - task: MSBuild@1
-    displayName: ${{ variables.platform }}
-    inputs:
-      solution: solution1.sln
-      configuration: $(configuration)
-      platform: $(platform)
-  - task: MSBuild@1
-    inputs:
-      solution: solution2.sln
-      configuration: $(configuration)
-      platform: $(platform)
+stages:
+  - stage: 
+    displayName: stage1
+    jobs:
+      variables:
+        key1: values1
+      - job: 
+        steps:
+          - script: echo "s1j1s1 ${{ variables.key1 }}"
