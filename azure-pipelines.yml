@@ -7,3 +7,5 @@ stages:
               echo "##vso[task.setvariable variable=sauce]crushed tomatoes"
           - bash: |
               echo $(sauce)
+          - bash: |
+              echo $SAUCE
