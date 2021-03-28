@@ -10,4 +10,4 @@ stages:
         variables:
           key1: values1
         steps:
-          - script: echo  $KEY1
+          - script: echo  $KEY1 $(key1)
