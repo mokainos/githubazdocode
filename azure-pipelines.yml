@@ -5,8 +5,9 @@ stages:
   - stage: 
     displayName: stage1
     jobs:
-      variables:
-        key1: values1
+
       - job: 
+        variables:
+          key1: values1
         steps:
           - script: echo "s1j1s1 ${{ variables.key1 }}"
