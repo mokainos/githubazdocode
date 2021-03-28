@@ -3,6 +3,7 @@ variables:
   platform: x64
 steps:
   - task: MSBuild@1
+    displayName: ${{ platform }}
     inputs:
       solution: solution1.sln
       configuration: $(configuration)
