@@ -1,13 +1,13 @@
 https://www.markdownguide.org/cheat-sheet/
 # Tiggers
-    1. All trigger paths are case-sensitive.
-    2. Continuous integration (CI) triggers vary based on the type of repository you build in your pipeline
-    3. Pull request validation (PR) triggers also vary based on the type of repository.
-    4. Comment triggers are supported only for GitHub repositories.
-    5. Scheduled triggers are independent of the repository and allow you to run a pipeline according to a schedule.
-    6.  Pipeline triggers in YAML pipelines and build **completion triggers**  in classic build pipelines allow you to trigger one pipeline upon the completion of another.
-    7.  For example, YAML pipelines in a GitHub repository have **CI triggers and PR triggers** enabled by default.
-    8.  You can combine scheduled and event-based triggers in your pipelines, for example to validate the build every time a push is made (CI trigger), when a pull request is made > (PR trigger), and a nightly build > (Scheduled trigger)
+1. All trigger paths are case-sensitive.
+2. Continuous integration (CI) triggers vary based on the type of repository you build in your pipeline
+3. Pull request validation (PR) triggers also vary based on the type of repository.
+4. Comment triggers are supported only for GitHub repositories.
+5. Scheduled triggers are independent of the repository and allow you to run a pipeline according to a schedule.
+6.  Pipeline triggers in YAML pipelines and build **completion triggers**  in classic build pipelines allow you to trigger one pipeline upon the completion of another.
+7.  For example, YAML pipelines in a GitHub repository have **CI triggers and PR triggers** enabled by default.
+8.  You can combine scheduled and event-based triggers in your pipelines, for example to validate the build every time a push is made (CI trigger), when a pull request is made > (PR trigger), and a nightly build > (Scheduled trigger)
 
 ## Schedule Triggers
     You can't use pipeline variables when specifying schedules
