@@ -26,3 +26,42 @@ https://www.markdownguide.org/cheat-sheet/
 ### CI Triggers
 - Continuous integration (CI) triggers cause a pipeline to run whenever you push an update to the specified branches or you push specified tags.
 - If you use templates to author YAML files, then you can only specify triggers in the main YAML file for the pipeline. You cannot specify triggers in the template files.
+- When you specify a trigger, it replaces the default implicit trigger, and only
+- pushes to branches that are explicitly configured to be included will trigger a pipeline. Includes are processed first, and then excludes are removed from that list.
+- When you push a change to a branch, the YAML file in that branch is evaluated to determine if a CI run should be started. 
+- You can opt out of CI triggers entirely by specifying `trigger: none` .
+```
+    # If you don't specify any triggers, the default is as if you wrote:
+
+    trigger:
+      branches:
+        include:
+        - '*' # must quote since "*" is a YAML reserved character; we want   a string
+```
+```
+    # specific path build
+        trigger:
+          batch: true|false
+          branches:
+            include:
+            - master
+            - releases/*
+            exclude:
+            - release/xyz
+          paths:
+            include:
+            - docs
+            exclude:
+            - docs/README.md
+```
+```
+    # specific tag
+    # If you don't specify any tag triggers, then by default, tags will not trigger pipelines.
+
+    trigger:
+        tags:
+          include:
+          - v2.*
+          exclude:
+          - v2.0
+```
